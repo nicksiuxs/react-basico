@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import Header from './components/Header/Header.jsx'
 import Product from './components/Product/Product.jsx'
 import Footer from './components/Footer/Footer.jsx'
@@ -14,22 +14,30 @@ function App() {
     { id: 4, nombre: "camisa JS", precio: 20 },
   ]);
 
+  // State para un carrito de compras
+  const [shoppingCar, addProduct ] = useState([])
+
   // Obtener la fecha
   const fecha = new Date().getFullYear();
   return (
-    <Fragment>
+    
+    <div>
       <Header titulo="Nueva tienda" />
       <h1>Lista de productos</h1>
       {
         products.map(product => (
           <Product 
-          key={product.id}
-          product={product}
+            key={product.id}
+            product={product}
+            products = {products}
+            shoppingCar = {shoppingCar}
+            addProduct = {addProduct}
           />
         ))
       }
       <Footer fecha={fecha} />
-    </Fragment>
+    </div>
+    
   );
 }
 
