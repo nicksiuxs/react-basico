@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Header from './components/Header/Header.jsx'
 import Product from './components/Product/Product.jsx'
 import Footer from './components/Footer/Footer.jsx'
-
+import ShoppingCart from './components/ShoppingCart/ShoppingCart.jsx'
 
 function App() {
 
@@ -15,29 +15,30 @@ function App() {
   ]);
 
   // State para un carrito de compras
-  const [shoppingCar, addProduct ] = useState([])
+  const [shoppingCart, addProduct] = useState([])
 
   // Obtener la fecha
   const fecha = new Date().getFullYear();
   return (
-    
+
     <div>
       <Header titulo="Nueva tienda" />
       <h1>Lista de productos</h1>
       {
         products.map(product => (
-          <Product 
+          <Product
             key={product.id}
             product={product}
-            products = {products}
-            shoppingCar = {shoppingCar}
-            addProduct = {addProduct}
+            products={products}
+            shoppingCart={shoppingCart}
+            addProduct={addProduct}
           />
         ))
       }
+      <ShoppingCart shoppingCart={shoppingCart}/>
       <Footer fecha={fecha} />
     </div>
-    
+
   );
 }
 
