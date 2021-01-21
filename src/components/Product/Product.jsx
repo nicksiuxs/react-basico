@@ -1,10 +1,10 @@
-const Producto = ({product, shoppingCar, addProduct, products}) => {
+const Producto = ({product, shoppingCart, addProduct, products}) => {
     const {id, nombre, precio} = product;
 
     // Agregar producto al carrito
     const seleccionarProducto = (id)=>{
         const producto = products.filter(product => product.id === id)[0];
-        addProduct([...shoppingCar , producto]);
+        addProduct([...shoppingCart , producto]);
         
     }
     return ( 
