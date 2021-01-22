@@ -7,14 +7,33 @@ const Producto = ({product, shoppingCart, addProduct, products}) => {
         addProduct([...shoppingCart , producto]);
         
     }
+
+    // Eliminar Producto
+    const eliminarProducto = (id)=>{
+        const productos = shoppingCart.filter(producto => product.id !== id); 
+        addProduct(productos);
+    }
+
     return ( 
         <div>
             <h2>{nombre}</h2>
             <p>${precio}</p>
-            <button 
-                type="button"
-                onClick={()=> seleccionarProducto(id)}
-            >Comprar</button>
+            
+            {
+                products
+                ? (
+                    <button 
+                        type="button"
+                        onClick={()=> seleccionarProducto(id)}
+                    >Comprar</button>
+                )
+                :(
+                    <button 
+                    type="button"
+                    onClick={()=> eliminarProducto(id)}
+                    >Eliminar</button>
+                )
+            }
         </div>
     );
 }

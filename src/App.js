@@ -35,7 +35,11 @@ function App() {
           />
         ))
       }
-      <ShoppingCart shoppingCart={shoppingCart}/>
+      <ShoppingCart 
+      shoppingCart={shoppingCart}
+      addProduct = {addProduct}
+      />
+
       <Footer fecha={fecha} />
     </div>
 
